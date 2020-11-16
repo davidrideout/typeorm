@@ -496,6 +496,9 @@ export class Connection {
                     return metadata.name === target || metadata.tableName === target;
                 }
             }
+            if (typeof metadata.target === "function" && typeof target === "function" && metadata.target.name === target.name) {
+                return true
+            }
 
             return false;
         });
